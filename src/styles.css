@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color:black;
+}
+
+.noborders{
+  border-top: none ;
+  border-right: none;
+  border-left: none;
+  outline:none;
+}
