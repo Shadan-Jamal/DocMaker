@@ -6,7 +6,7 @@ body{
   background-color:black;
 }
 
-.noborders{
+.noborders:focus{
   border-top: none ;
   border-right: none;
   border-left: none;
