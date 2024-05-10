@@ -5,11 +5,14 @@
 import TextCard from "./TextCard";
 
   const Card =  () =>{
-    
-    return <div className="bg-red-900 text-black p-3 mt-5 rounded-lg">
+    return (<motion.div
+    initial={{opacity:0,scale:0}}
+    animate={{opacity:1,scale:1}}
+    transition={{duration:0.1}}
+    className="bg-white text-black rounded-lg mt-3"
+    >
     <Input />
-    <TextCard />
-  </div>
+    </motion.div>)
   };
 
   export default Card;
