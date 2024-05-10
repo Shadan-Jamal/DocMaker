@@ -8,6 +8,7 @@ import Card from "./Card";
 
 export default function Nav(){
     const [showCard,setCard]=useState(false);
+    
     return (
         <Font family="Poetsen One">
             <header className="text-white font-bold h-16 text-start px-4 py-3 text-3xl tracking-wider bg-gray-700">DocMaker.</header>
