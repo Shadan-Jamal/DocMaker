@@ -9,7 +9,7 @@ import TextCard from "./TextCard";
     initial={{opacity:0,scale:0}}
     animate={{opacity:1,scale:1}}
     transition={{duration:0.1}}
-    className="bg-white text-black rounded-lg mt-3"
+    className="bg-white text-black rounded-lg mt-3 max-w-52"
     >
     <Input />
     </motion.div>)

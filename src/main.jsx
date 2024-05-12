@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Nav from './components/Nav.jsx'
+import Main from './components/Main.jsx'
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Nav />
+    <Main />
   </React.StrictMode>,
 )
