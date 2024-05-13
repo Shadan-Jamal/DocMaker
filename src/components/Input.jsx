@@ -3,11 +3,15 @@ import React,{useRef, useState} from 'react'
 function Input() {
   const [checkInput,setCheckInput]=useState('');
   const [checkTitle,setCheckTitle]=useState('');
-    
+  // function handleClick(){
+  //   if (checkTitle==="Enter"){
+  //     const changetitle="text-red-800";
+  //   }
+  // }
   return (
     <div
     className=" text-black p-3 rounded-lg text-sm"
-    ref={titleEntry}
+    // ref={titleEntry}
   >
     <label htmlFor="title" className="text-black">Enter Title:</label>
     <input

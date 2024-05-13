@@ -30,9 +30,8 @@ return (
         </motion.button>
     </nav>
     <div className="grid grid-cols-6 gap-5 w-screen">
-        {showCard}
+    {showCard}
     </div>
-    
 </Font>
 )
 }
