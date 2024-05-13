@@ -29,7 +29,7 @@ return (
         <motion.button className="rounded-full p-3 transition-colors hover:bg-gray-600/50"><FaXmark size={"22px"} />
         </motion.button>
     </nav>
-    <div className="grid grid-cols-6 gap-5 w-screen">
+    <div className="w-screen grid grid-cols-5 gap-6 px-6">
     {showCard}
     </div>
 </Font>

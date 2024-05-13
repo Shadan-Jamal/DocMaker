@@ -12,3 +12,10 @@ body{
   border-left: none;
   outline:none;
 }
+
+.noborder-input:focus{
+  border-right:none;
+  border-bottom:none;
+  border-top:none;
+  outline:none
+}
