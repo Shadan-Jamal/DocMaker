@@ -1,16 +1,16 @@
 import React from 'react'
 import {motion} from "framer-motion";
 
-function TextCard({title,onPressEnter}) {
+function TextCard({readonly}) {
   return ( 
-    title && (<motion.div className="bg-transparent px-1 rounded-lg">
+    <motion.div className="bg-transparent px-1 rounded-lg">
     <textarea
-    onKeyDown={onPressEnter} 
-    id="text-content" 
-    className="bg-white text-black w-full p-1 border-l-black noborders-input">
+    autoFocus={readonly} 
+    id="text-content"
+    className="bg-white text-black w-full p-1 border-l-black noborders-input h-10 focus:outline-none">
 
     </textarea>
-  </motion.div>)
+  </motion.div>
   )
 }
 

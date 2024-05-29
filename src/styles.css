@@ -19,3 +19,7 @@ body{
   border-top:none;
   outline:none
 }
+
+textarea{
+  resize: none;
+}
