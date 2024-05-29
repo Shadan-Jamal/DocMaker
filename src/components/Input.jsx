@@ -15,7 +15,6 @@ function Input({readonly , setreadonly , titleHeading , setTitleHeading}) {
     onKeyDown={(e) => e.key === "Enter" && [setreadonly(true),setTitleHeading(false)]}
     readOnly={readonly}
     autoFocus
-    autoCapitalize='on'
     id="title"
     className="px-3 py-1 rounded-md hover:bg-gray-200 border-b-2 border-b-black text-black text-wrap w-full noborders bg-transparent"/>
   </div>

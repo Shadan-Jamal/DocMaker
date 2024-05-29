@@ -17,7 +17,7 @@
     className="bg-white text-black rounded-lg mt-3 max-h-32"
     >
     <Input readonly={readonly} setreadonly={setreadonly} titleHeading={titleHeading} setTitleHeading={setTitleHeading}/>
-    
+
     {!titleHeading && <TextCard readonly={readonly} />}
     </motion.div>
     )
