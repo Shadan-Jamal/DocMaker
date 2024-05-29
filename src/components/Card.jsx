@@ -7,6 +7,7 @@
   const Card =  () =>{
     const textCardId=useId();
     const [readonly,setreadonly]=useState(false);
+    const [titleHeading,setTitleHeading]=useState(true);
 
     return (
     <motion.div
@@ -15,8 +16,9 @@
     transition={{duration:0.1}}
     className="bg-white text-black rounded-lg mt-3 max-h-32"
     >
-    <Input readonly={readonly} setreadonly={setreadonly}/>
-    <TextCard readonly={readonly}/>
+    <Input readonly={readonly} setreadonly={setreadonly} titleHeading={titleHeading} setTitleHeading={setTitleHeading}/>
+    
+    {!titleHeading && <TextCard readonly={readonly} />}
     </motion.div>
     )
   };
