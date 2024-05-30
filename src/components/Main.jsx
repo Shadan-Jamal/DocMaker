@@ -11,7 +11,7 @@ const [showCard,setShowCard]=useState([]);
 const [searchField,showSearchField]= useState(false);
 const [titles,setTitle]=useState([]);
 const [searchInput,setSearchInput]=useState('');
-const [checkInput,setCheckInput]=useState('');
+const [checkInputField,setCheckInputField]=useState('');
 
 const openSearch=()=>{
     showSearchField(!searchField);
@@ -24,9 +24,17 @@ const checkTitleEntry=(title) => {
 const handleClick=()=>{
     setShowCard([...showCard,<Card key={showCard.length} 
         checkTitleEntry={checkTitleEntry} 
-        checkInput={checkInput} 
-        setCheckInput={setCheckInput} />]);
+        checkInputField={checkInputField} 
+        setCheckInputField={setCheckInputField} />]);
 }
+
+// const handleSearchQuery = () =>{
+//     if(titles.includes(searchInput)){
+//         return showCard.filter(item)
+//     }
+// }
+
+// showCard.filter(card => console.log(card.props.checkInput));
 
 return (
 <Font family="Poetsen One">
@@ -61,6 +69,7 @@ return (
             </motion.button>
         </nav>
     </div>
+
     <div className="w-screen grid grid-cols-5 grid-flow-row gap-6 px-6">
     {showCard}
     </div>
