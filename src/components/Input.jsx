@@ -1,9 +1,14 @@
 import React,{useState} from 'react';
 
-function Input({readonly , setreadonly , titleHeading , setTitleHeading}) {
-  
-  const [checkInput,setCheckInput]=useState('');
-  
+function Input({readonly , setreadonly , titleHeading , setTitleHeading, checkTitleEntry, checkInput, setCheckInput}) {
+  const handleKeyDown=(e)=>{
+    if(e.key === "Enter"){
+      setreadonly(true);
+      setTitleHeading(false);
+      checkTitleEntry(checkInput);
+      setCheckInput('');
+    }
+  }
   return (
     <div
     className=" text-black p-2 rounded-lg text-sm">
@@ -12,7 +17,7 @@ function Input({readonly , setreadonly , titleHeading , setTitleHeading}) {
     value={checkInput}
     onChange={(e) => setCheckInput(e.target.value)} 
     type="text"
-    onKeyDown={(e) => e.key === "Enter" && [setreadonly(true),setTitleHeading(false)]}
+    onKeyDown={handleKeyDown}
     readOnly={readonly}
     autoFocus
     id="title"

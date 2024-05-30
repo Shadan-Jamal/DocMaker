@@ -4,7 +4,7 @@
   import "../styles.css"
   import TextCard from "./TextCard";
 
-  const Card =  () =>{
+  const Card =  ({checkTitleEntry, checkInput, setCheckInput}) =>{
     const textCardId=useId();
     const [readonly,setreadonly]=useState(false);
     const [titleHeading,setTitleHeading]=useState(true);
@@ -16,7 +16,13 @@
     transition={{duration:0.1}}
     className="bg-white text-black rounded-lg mt-3 max-h-32"
     >
-    <Input readonly={readonly} setreadonly={setreadonly} titleHeading={titleHeading} setTitleHeading={setTitleHeading}/>
+    <Input readonly={readonly} 
+    setreadonly={setreadonly} 
+    titleHeading={titleHeading} 
+    setTitleHeading={setTitleHeading} 
+    checkTitleEntry={checkTitleEntry}
+    checkInput={checkInput}
+    setCheckInput={setCheckInput}/>
 
     {!titleHeading && <TextCard readonly={readonly} />}
     </motion.div>

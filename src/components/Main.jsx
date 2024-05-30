@@ -4,18 +4,28 @@ import Card from "./Card";
 import {FaPlus} from "react-icons/fa6";
 import {FaMagnifyingGlass} from "react-icons/fa6";
 import {FaXmark} from "react-icons/fa6";
-import {motion,AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 
 export default function Main(){
 const [showCard,setShowCard]=useState([]);
-const [searchField,setSearchField]= useState(false);
-
-function handleClick(){
-    setShowCard([...showCard,<Card key={showCard.length} />]);
-}
+const [searchField,showSearchField]= useState(false);
+const [titles,setTitle]=useState([]);
+const [searchInput,setSearchInput]=useState('');
+const [checkInput,setCheckInput]=useState('');
 
 const openSearch=()=>{
-    setSearchField(!searchField);
+    showSearchField(!searchField);
+}
+
+const checkTitleEntry=(title) => {
+    setTitle([...titles,title]);
+}
+
+const handleClick=()=>{
+    setShowCard([...showCard,<Card key={showCard.length} 
+        checkTitleEntry={checkTitleEntry} 
+        checkInput={checkInput} 
+        setCheckInput={setCheckInput} />]);
 }
 
 return (
@@ -38,7 +48,9 @@ return (
 
             {searchField && 
             <motion.input
-            placeholder="Search the note..." 
+            placeholder="Search the note..."
+            value={searchInput}
+            onChange={(e)=>setSearchInput(e.target.value)} 
             autoFocus 
             initial={{scaleX:0}}
             animate={{scaleX:1}} 
