@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useId, useRef, useState } from "react";
 import Font from "react-font";
 import Card from "./Card";
-import {FaPlus} from "react-icons/fa6";
-import {FaMagnifyingGlass} from "react-icons/fa6";
-import {FaXmark} from "react-icons/fa6";
-import {motion} from "framer-motion";
+import {FaPlus,FaMagnifyingGlass,FaXmark} from "react-icons/fa6";
+import {motion,AnimatePresence} from "framer-motion";
 
 export default function Main(){
 const [showCard,setShowCard]=useState([]);
@@ -22,10 +20,7 @@ const checkTitleEntry=(title) => {
 }
 
 const handleClick=()=>{
-    setShowCard([...showCard,<Card key={showCard.length} 
-        checkTitleEntry={checkTitleEntry} 
-        checkInputField={checkInputField} 
-        setCheckInputField={setCheckInputField} />]);
+    setShowCard((prevCard) => [...prevCard, {}])
 }
 
 // const handleSearchQuery = () =>{
@@ -54,24 +49,36 @@ return (
                 <FaMagnifyingGlass size={"20px"} />
             </motion.button>
 
+            <AnimatePresence>
             {searchField && 
-            <motion.input
-            placeholder="Search the note..."
-            value={searchInput}
-            onChange={(e)=>setSearchInput(e.target.value)} 
-            autoFocus 
-            initial={{scaleX:0}}
-            animate={{scaleX:1}} 
-            className="text-base p-2 rounded">
-            </motion.input>}
+                <motion.input
+                key="search"
+                initial={{scale:0, backgroundColor: "" }}
+                animate={{scale:1 , backgroundColor: "black"}}
+                exit={{scale:0, backgroundColor: "black"}}
+                transition={{duration:0.2}}
+                placeholder="Search the note..."
+                value={searchInput}
+                onChange={(e)=>setSearchInput(e.target.value)} 
+                autoFocus 
+                className="text-base p-2 rounded text-white focus:border-red-500">
+                </motion.input>
+            }
 
             <motion.button className="rounded-full p-3 transition-colors hover:bg-gray-600/50"><FaXmark size={"22px"} />
             </motion.button>
+
+            </AnimatePresence>
         </nav>
     </div>
 
     <div className="w-screen grid grid-cols-5 grid-flow-row gap-6 px-6">
-    {showCard}
+    {showCard.map((item,index) => {
+        return <Card key={index} 
+        checkTitleEntry={checkTitleEntry} 
+        checkInputField={checkInputField} 
+        setCheckInputField={setCheckInputField} />;
+    })}
     </div>
 </Font>
 )

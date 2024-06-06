@@ -5,7 +5,6 @@
   import TextCard from "./TextCard";
 
   const Card =  ({checkTitleEntry, checkInputField, setCheckInputField}) =>{
-    const textCardId=useId();
     const [readonly,setreadonly]=useState(false);
     const [titleHeading,setTitleHeading]=useState(true);
 
