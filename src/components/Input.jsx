@@ -1,16 +1,15 @@
 import React,{useState} from 'react';
 
-function Input({readonly , setreadonly , titleHeading , setTitleHeading, checkTitleEntry, checkInputField, setCheckInputField}) {
+function Input({readonly , setreadonly , titleHeading , setTitleHeading, checkTitleEntry}) {
+  const [checkInputField,setCheckInputField]=useState('');
 
   const handleKeyDown=(e)=>{
     if(e.key === "Enter"){
       setreadonly(true);
       setTitleHeading(false);
-      checkTitleEntry(checkInput);
+      checkTitleEntry(checkInputField);
     }
   }
-
-  console.log(checkInputField);
 
   return (
     <div
@@ -18,7 +17,7 @@ function Input({readonly , setreadonly , titleHeading , setTitleHeading, checkTi
     {titleHeading && <label htmlFor="title" className="text-black">Enter Title:</label>}
     <input
     value={checkInputField}
-    onChange={(e) => setCheckInputField(e.target.value)} 
+    onChange={(e) => setCheckInputField(e.target.value)}
     type="text"
     onKeyDown={handleKeyDown}
     readOnly={readonly}

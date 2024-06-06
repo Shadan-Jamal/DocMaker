@@ -9,7 +9,6 @@ const [showCard,setShowCard]=useState([]);
 const [searchField,showSearchField]= useState(false);
 const [titles,setTitle]=useState([]);
 const [searchInput,setSearchInput]=useState('');
-const [checkInputField,setCheckInputField]=useState('');
 
 const openSearch=()=>{
     showSearchField(!searchField);
@@ -23,13 +22,16 @@ const handleClick=()=>{
     setShowCard((prevCard) => [...prevCard, {}])
 }
 
-// const handleSearchQuery = () =>{
-//     if(titles.includes(searchInput)){
-//         return showCard.filter(item)
-//     }
-// }
-
-// showCard.filter(card => console.log(card.props.checkInput));
+const handleSearchQuery = (searchInput,enterPressed) =>{
+    if(enterPressed === "Enter"){
+        console.log(titles,searchInput,showCard);
+        setShowCard(() => {
+            return showCard.filter(item => {
+                console.log(item);
+            })
+        })
+    }
+}
 
 return (
 <Font family="Poetsen One">
@@ -59,7 +61,8 @@ return (
                 transition={{duration:0.2}}
                 placeholder="Search the note..."
                 value={searchInput}
-                onChange={(e)=>setSearchInput(e.target.value)} 
+                onChange={(e)=>setSearchInput(e.target.value)}
+                onKeyDown={(e) => handleSearchQuery(searchInput,e.key)}
                 autoFocus 
                 className="text-base p-2 rounded text-white focus:border-red-500">
                 </motion.input>
@@ -75,9 +78,7 @@ return (
     <div className="w-screen grid grid-cols-5 grid-flow-row gap-6 px-6">
     {showCard.map((item,index) => {
         return <Card key={index} 
-        checkTitleEntry={checkTitleEntry} 
-        checkInputField={checkInputField} 
-        setCheckInputField={setCheckInputField} />;
+        checkTitleEntry={checkTitleEntry} />;
     })}
     </div>
 </Font>

@@ -4,7 +4,7 @@
   import "../styles.css"
   import TextCard from "./TextCard";
 
-  const Card =  ({checkTitleEntry, checkInputField, setCheckInputField}) =>{
+  const Card =  ({checkTitleEntry}) =>{
     const [readonly,setreadonly]=useState(false);
     const [titleHeading,setTitleHeading]=useState(true);
 
@@ -19,10 +19,8 @@
     <Input readonly={readonly} 
     setreadonly={setreadonly} 
     setTitleHeading={setTitleHeading} 
-    setCheckInputField= {setCheckInputField}
     titleHeading={titleHeading} 
-    checkTitleEntry={checkTitleEntry}
-    checkInputField={checkInputField} />
+    checkTitleEntry={checkTitleEntry} />
 
     {!titleHeading && <TextCard readonly={readonly} />}
     </motion.div>
